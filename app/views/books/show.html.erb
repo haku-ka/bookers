@@ -1,0 +1,21 @@
+<%= flash[:notice] %>
+
+<%= flash[:error] %>
+  <% if @book.errors.any? %>
+  <%= @book.errors.count %>errors prohibited this book from being saved:
+  <ul>
+  <% @book.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+  <% end %>
+  </ul>
+<% end %>
+
+ <p class="single-text">
+  <strong>Title:</strong>
+    <%= @book.title %><br>
+  <strong>Body:</strong>
+    <%= @book.body %>
+</p>
+      <!-- <a href="#">編集</a> を削除し、以下コードに変更 -->
+<%= link_to "Edit", edit_book_path(@book),class:"btn" %>
+<%= link_to "back", books_path,class:"btn" %>
